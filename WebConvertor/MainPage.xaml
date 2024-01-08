@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:WebConvertor="clr-namespace:WebConvertor"
+             x:Class="WebConvertor.MainPage"
+             x:DataType="WebConvertor:ViewModel"
+             BackgroundColor="DeepPink">
+
+    <VerticalStackLayout>
+        <VerticalStackLayout.Resources>
+            <ResourceDictionary>
+                <x:Array x:Key="CurrencyList" Type="{x:Type x:String}">
+                    <x:String>AUD</x:String>
+                    <x:String>GBP</x:String>
+                    <x:String>BYR</x:String>
+                    <x:String>DKK</x:String>
+                    <x:String>USD</x:String>
+                    <x:String>EUR</x:String>
+                    <x:String>ISK</x:String>
+                    <x:String>KZT</x:String>
+                    <x:String>CAD</x:String>
+                    <x:String>NOK</x:String>
+                    <x:String>XDR</x:String>
+                    <x:String>SGD</x:String>
+                    <x:String>TRL</x:String>
+                    <x:String>UAH</x:String>
+                    <x:String>SEK</x:String>
+                    <x:String>CHF</x:String>
+                    <x:String>JPY</x:String>
+                </x:Array>
+            </ResourceDictionary>
+        </VerticalStackLayout.Resources>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+
+                <ColumnDefinition Width="*"/>
+
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Label 
+                Grid.Column         = "2"
+                Grid.ColumnSpan     = "3"
+                Grid.Row            = "0"
+                TextColor           = "Black"
+                HorizontalOptions   = "Center"
+                FontSize="Header"
+                FontFamily="Algerian"
+                Margin              = "0,50,0,50"
+             >BARBIE-MONEY</Label>
+
+            <Entry 
+                x:Name                  = "EntryFrom"
+                                
+                BackgroundColor         = "HotPink"
+                TextColor               = "white"
+                FontSize                = "Small"
+                
+                VerticalTextAlignment   = "Center"
+                HorizontalTextAlignment = "Center"
+                
+                Grid.Column             = "2"
+                Grid.Row                = "2" 
+                
+                Text="{Binding MEntryFrom}"
+             />
+
+            <Label
+                BackgroundColor         = "HotPink" 
+                TextColor               = "White"
+                FontSize                = "Small"
+                HorizontalTextAlignment = "Center"
+                VerticalTextAlignment   = "Center"
+                
+                Grid.Column = "4" 
+                Grid.Row    = "2" 
+                
+                Text="{Binding MConvertedValue}"
+             />
+
+            <Picker 
+                x:Name                  = "PickerFrom" 
+                Title                   = "FromCurrency" 
+                TitleColor              = "Black"
+                BackgroundColor         = "MediumVioletRed" 
+                Grid.Column             = "2" 
+                Grid.Row                = "3" 
+                SelectedItem="{Binding MPickerFrom}"
+                
+                ItemsSource="{StaticResource CurrencyList}"
+             />
+
+            <Picker 
+                x:Name                  = "PickerTo"
+                Title                   = "ToCurrency"
+                TitleColor              = "Black"
+                BackgroundColor         = "MediumVioletRed" 
+                Grid.Column             = "4"
+                Grid.Row                = "3"
+                SelectedItem="{Binding MPickerTo}"
+                
+                ItemsSource="{StaticResource CurrencyList}"
+             />
+
+
+            <DatePicker
+                MinimumDate="01.01.2002"
+                x:Name              = "DateSelector" 
+                HorizontalOptions   = "Center"
+                BackgroundColor     = "Pink"
+                
+                Grid.Column         = "3" 
+                Grid.Row            = "1"
+                
+                Date="{Binding MDatePicker}"
+             />
+
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>
